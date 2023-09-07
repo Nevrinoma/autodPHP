@@ -85,6 +85,18 @@ else{
 }
 echo "<br>";
 echo "Годы выпуска в порядке убывания: " . $yearsString;
+
+echo "Вывести в строчку имена владельцев через запятую, длина которых больше 5 символов";
+
+$ownersWithLongNames = [];
+foreach ($autod->auto as $auto) {
+    $owner = $auto->omanik;
+    if (strlen($owner) > 5) {
+        $ownersWithLongNames[] = $owner;
+    }
+}
+$longNamesString = implode(', ', $ownersWithLongNames);
+echo "Имена: " . $longNamesString;
 ?>
 <style>
     table {
